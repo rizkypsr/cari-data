@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Data Anggota</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <main class="wrap">
+    <span class="tag">ADMIN</span>
+    <h1>UPDATE<br /><mark>DATA ANGGOTA</mark></h1>
+    <form id="login" class="card">
+      <label for="pw">Password Admin</label>
+      <input id="pw" type="password" placeholder="Masukkan password" autocomplete="current-password" required />
+      <button type="submit" id="loginBtn">MASUK →</button>
+    </form>
+
+    <p class="sub" id="info" hidden></p>
+
+    <form id="form" class="card" hidden>
+      <label for="file">File Excel (.xlsx)</label>
+      <input id="file" type="file" accept=".xlsx,.xls" required />
+      <button type="submit" id="btn">UNGGAH &amp; GANTI DATA →</button>
+    </form>
+
+    <section id="hasil" aria-live="polite"></section>
+    <footer>File baru akan <b>menggantikan</b> seluruh data lama. Kolom nama dicari dari judul kolom "Nama".</footer>
+  </main>
+  <script type="module" src="/src/admin.js"></script>
+</body>
+</html>

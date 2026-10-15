@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cek Keanggotaan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <main class="wrap">
+    <span class="tag">DATA ANGGOTA</span>
+    <h1>CEK STATUS<br /><mark>KEANGGOTAAN</mark></h1>
+    <p class="sub">Ketik nama lengkap Anda untuk mengetahui apakah sudah terdaftar.</p>
+
+    <form id="form" class="card" autocomplete="off">
+      <label for="nama">Nama Lengkap</label>
+      <input id="nama" type="text" placeholder="Contoh: Budi Santoso" required />
+      <button type="submit" id="btn">CEK SEKARANG →</button>
+    </form>
+
+    <section id="hasil" aria-live="polite"></section>
+    <footer>Pencarian tidak membedakan huruf besar/kecil.</footer>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
