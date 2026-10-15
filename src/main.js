@@ -12,8 +12,8 @@ form.addEventListener('submit', async (e) => {
   btn.disabled = true; btn.textContent = 'MENCARI…'
   try {
     const res = await fetch('/api/cek?nama=' + encodeURIComponent(q))
-    if (!res.ok) throw new Error()
-    const r = await res.json()
+    const r = await res.json().catch(() => ({}))
+    if (!res.ok) throw new Error(r.error)
     if (r.terdaftar) {
       hasil.innerHTML = `
         <div class="result ok">
@@ -31,8 +31,8 @@ form.addEventListener('submit', async (e) => {
           ${r.mirip?.length ? `<p>Mungkin maksud Anda: ${r.mirip.map((s) => `<b>${esc(s)}</b>`).join(', ')}</p>` : ''}
         </div>`
     }
-  } catch {
-    hasil.innerHTML = `<div class="result no"><strong>Server tidak dapat dihubungi.</strong><p>Coba lagi beberapa saat.</p></div>`
+  } catch (err) {
+    hasil.innerHTML = `<div class="result no"><strong>${esc(err.message || 'Server tidak dapat dihubungi.')}</strong><p>Coba lagi beberapa saat.</p></div>`
   }
   btn.disabled = false; btn.textContent = 'CEK SEKARANG →'
 })
